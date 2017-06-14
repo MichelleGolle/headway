@@ -24,6 +24,7 @@ module Admin
 
     def update
       @user = User.find(params[:id])
+      @user.roles = [] unless user_params.include?("roles")
       if @user.update_attributes(user_params)
         flash[:success] = "User updated successully"
         redirect_to admin_users_path

@@ -1,3 +1,3 @@
 Canard::Abilities.for(:admin) do
-  can [:create, :destroy], User
+  can [:manage], User
 end

@@ -10,6 +10,15 @@ feature 'Retrieve user list from browser' do
     expect(page).to have_content('You must be an admin to perform that action')
   end
 
+  scenario 'with manager privileges' do
+    user = create(:user, :manager)
+
+    sign_in(user.email, user.password)
+    visit admin_users_path
+
+    expect(page).to have_content('You must be an admin to perform that action')
+  end
+
   scenario 'with admin privileges' do
     user = create(:user, :admin)
 

@@ -13,6 +13,12 @@ FactoryGirl.define do
       last_name 'User'
       email 'admin@example.com'
     end
+    trait :manager do
+      roles [:manager]
+      first_name 'Manager'
+      last_name 'User'
+      email 'manager@example.com'
+    end
   end
 end
 
