@@ -1,6 +1,6 @@
 h1
-  | Create User
-= simple_form_for(@user, url: admin_users_path) do |f|
+  | Edit User
+= simple_form_for(@user, url: admin_user_path(@user)) do |f|
   
     = f.label :first_name
     = f.text_field :first_name
@@ -17,12 +17,6 @@ h1
     = f.label :email
     = f.text_field :email
   
-    = f.label :password
-    = f.text_field :password
-  
-    = f.label :password_confirmation
-    = f.text_field :password_confirmation
-
     =
   
     = f.button :submit
