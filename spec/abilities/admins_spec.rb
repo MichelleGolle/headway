@@ -10,6 +10,7 @@ describe Canard::Abilities, '#admins' do
     let(:user) { FactoryGirl.create(:user) }
 
     it { is_expected.to be_able_to(:destroy, user) }
+    it { is_expected.to be_able_to(:create, user) }
   end
   # on User
 end

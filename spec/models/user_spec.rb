@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'constants' do
     context 'roles' do
-      it 'has the admin role' do
-        expect(User::ROLES).to eq([:admin])
+      it 'has the admin and manager roles' do
+        expect(User::ROLES).to eq([:manager, :admin])
       end
     end
   end
