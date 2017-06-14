@@ -39,6 +39,13 @@ module Admin
       respond_with(@users)
     end
 
+    def destroy
+      user = User.find(params[:id])
+      user.destroy
+      flash[:success] = "User destroyed successfully"
+      redirect_to admin_users_path
+    end
+
     def impersonate
       user = User.find(params[:id])
       track_impersonation(user, 'Start')
