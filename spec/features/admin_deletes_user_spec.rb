@@ -8,9 +8,8 @@ feature 'Admin deletes user' do
     sign_in(admin.email, admin.password)
     visit admin_users_path
 
-
     page.find_link('Destroy', href: "/admin/users/#{user.id}").click
 
-    expect(page).not_to have_content("#{user.email}")
+    expect(page).to_not have_content(user.email.to_s)
   end
 end

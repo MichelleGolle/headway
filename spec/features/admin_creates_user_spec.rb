@@ -7,7 +7,7 @@ feature 'Admin creates a new user' do
     sign_in(user.email, user.password)
     visit new_admin_user_path
 
-    expect(page).to have_content("Create User")
+    expect(page).to have_content('Create User')
 
     page.fill_in('Email', with: 'james@test.com')
     page.fill_in('user[password]', with: 'asdfjkl123')
@@ -23,7 +23,7 @@ feature 'Admin creates a new user' do
     sign_in(user.email, user.password)
     visit new_admin_user_path
 
-    expect(page).to have_content("Create User")
+    expect(page).to have_content('Create User')
 
     page.fill_in('First name', with: 'Penny')
     page.fill_in('Last name', with: 'A')

@@ -32,6 +32,6 @@ feature 'Admin edits a user' do
 
     expect(page).to have_content('Listing Users')
     expect(page).to have_content('Penny')
-    expect(page).not_to have_content('manager')
+    expect(page).to_not have_content('manager')
   end
 end

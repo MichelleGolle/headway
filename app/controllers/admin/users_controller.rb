@@ -10,10 +10,10 @@ module Admin
     def create
       @user = User.new(user_params)
       if @user.save
-        flash[:success] = "User created successfully"
+        flash[:success] = 'User created successfully'
         redirect_to admin_users_path
       else
-        flash[:error] = "Invalid fields"
+        flash[:error] = @user.errors.full_messages.uniq.join(", ")
         render :new
       end
     end
@@ -24,12 +24,12 @@ module Admin
 
     def update
       @user = User.find(params[:id])
-      @user.roles = [] unless user_params.include?("roles")
+      @user.roles = [] unless user_params.include?('roles')
       if @user.update_attributes(user_params)
-        flash[:success] = "User updated successully"
+        flash[:success] = 'User updated successully'
         redirect_to admin_users_path
       else
-        flash[:error] = "Invalid Fields"
+        flash[:error] = @user.errors.full_messages.uniq.join(", ")
         render :edit
       end
     end
@@ -43,8 +43,12 @@ module Admin
     def destroy
       user = User.find(params[:id])
       user.destroy
-      flash[:success] = "User destroyed successfully"
+      flash[:success] = 'User destroyed successfully'
       redirect_to admin_users_path
+    end
+
+    def show
+      @user = User.find(params[:id])
     end
 
     def impersonate
@@ -74,11 +78,11 @@ module Admin
 
     def user_params
       params.require(:user).permit(:first_name,
-                            :last_name,
-                            :email,
-                            :password,
-                            :password_confirmation,
-                            roles: [])
+                                   :last_name,
+                                   :email,
+                                   :password,
+                                   :password_confirmation,
+                                   roles: [])
     end
   end
 end
