@@ -13,7 +13,7 @@ module Admin
         flash[:success] = 'User created successfully'
         redirect_to admin_users_path
       else
-        flash[:error] = @user.errors.full_messages.uniq.join(", ")
+        flash[:error] = @user.errors.full_messages.uniq.join(', ')
         render :new
       end
     end
@@ -29,7 +29,7 @@ module Admin
         flash[:success] = 'User updated successully'
         redirect_to admin_users_path
       else
-        flash[:error] = @user.errors.full_messages.uniq.join(", ")
+        flash[:error] = @user.errors.full_messages.uniq.join(', ')
         render :edit
       end
     end
